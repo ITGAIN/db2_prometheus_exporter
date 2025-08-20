@@ -1,0 +1,113 @@
+{
+    "id": null,
+    "title": "DB2 MON_GET_DATABASE Overview",
+    "timezone": "browser",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Lock Wait Time (rate)",
+        "targets": [
+          {
+            "expr": "rate(db2_lock_wait_time_total[5m])",
+            "legendFormat": "{{database}}",
+            "refId": "A"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Deadlocks (rate)",
+        "targets": [
+          {
+            "expr": "rate(db2_deadlocks_total[5m])",
+            "legendFormat": "{{database}}",
+            "refId": "B"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 12, "y": 0, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Rows Read vs Returned (rate)",
+        "targets": [
+          {
+            "expr": "rate(db2_rows_read_total[5m])",
+            "legendFormat": "Read - {{database}}",
+            "refId": "C"
+          },
+          {
+            "expr": "rate(db2_rows_returned_total[5m])",
+            "legendFormat": "Returned - {{database}}",
+            "refId": "D"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 8, "w": 24, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Rows Modified (rate)",
+        "targets": [
+          {
+            "expr": "rate(db2_rows_modified_total[5m])",
+            "legendFormat": "{{database}}",
+            "refId": "E"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 16, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Total Sorts (rate)",
+        "targets": [
+          {
+            "expr": "rate(db2_total_sorts_total[5m])",
+            "legendFormat": "{{database}}",
+            "refId": "F"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 12, "y": 16, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Sort Heap Allocated",
+        "targets": [
+          {
+            "expr": "db2_sort_heap_allocated",
+            "legendFormat": "{{database}}",
+            "refId": "G"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 0, "y": 24, "w": 12, "h": 8 }
+      },
+      {
+        "type": "graph",
+        "title": "Buffer Pool Reads (Logical vs Physical)",
+        "targets": [
+          {
+            "expr": "rate(db2_pool_data_l_reads_total[5m])",
+            "legendFormat": "Logical - {{database}}",
+            "refId": "H"
+          },
+          {
+            "expr": "rate(db2_pool_data_p_reads_total[5m])",
+            "legendFormat": "Physical - {{database}}",
+            "refId": "I"
+          }
+        ],
+        "datasource": "Prometheus",
+        "gridPos": { "x": 12, "y": 24, "w": 12, "h": 8 }
+      }
+    ],
+    "schemaVersion": 37,
+    "version": 1,
+    "refresh": "30s",
+    "uid": "db2-mon-overview",
+    "tags": ["db2", "mon_get_database"]
+  }

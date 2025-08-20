@@ -1,0 +1,25 @@
+groups:
+  - name: db2.rules
+    interval: 30s
+    rules:
+      - record: database:db2_bufferpool_data_hit_ratio:rate5m
+        expr: |
+          (
+            rate(db2_mongetdatabase_pool_data_lbp_pages_found_total[5m])
+            -
+            rate(db2_mongetdatabase_pool_async_data_lbp_pages_found_total[5m])
+          )
+          /
+          (
+            rate(db2_mongetdatabase_pool_data_l_reads_total[5m])
+            +
+            rate(db2_mongetdatabase_pool_temp_data_l_reads_total[5m])
+          )
+      - alert: DB2BufferpoolDataHitRatioLow
+        expr: database:db2_bufferpool_data_hit_ratio:rate5m < 0.9
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "DB2 Bufferpool Data Hit Ratio Low"
+          description: "The DB2 bufferpool data hit ratio is below 90%."
