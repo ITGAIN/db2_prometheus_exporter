@@ -5,7 +5,6 @@ services:
     build: .
     volumes:
       - ./myconfig.yaml:/app/config.yaml
-      #- ./myconfig_zos.yaml:/app/config.yaml
     ports:
       - "8001:8000"
     restart: always

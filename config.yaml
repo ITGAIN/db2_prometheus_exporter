@@ -1,3 +1,7 @@
+# this is an example configuration file for the db2 exporter
+# it defines the exporter port, database connections, and queries to run
+# create your own "myconfig.yaml" based on this template
+
 exporter_port: 8000
 
 databases:
