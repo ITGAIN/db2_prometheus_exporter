@@ -71,3 +71,55 @@ queries:
     extra_labels:
       - bp_name
       - member
+
+  - name: "transactionlog_metrics"
+    metric_origin: "mongettransactionlog"
+    query: "SELECT * FROM TABLE(MON_GET_transaction_log(-2)) AS t"
+    extra_labels:
+      - member
+
+  - name: "envgetsystemresources"
+    metric_origin: "envgetsystemresources"
+    query: "SELECT * FROM TABLE(ENV_GET_SYSTEM_RESOURCES()) AS t"
+    extra_labels:
+      - member
+      - HOST_NAME
+      
+
+  - name: "idug metric"
+    metric_origin: "mongetconnection"
+    query: "SELECT * FROM TABLE(MON_GET_CONNECTION(NULL,-2)) AS t"
+#    gauge_metrics:
+#      - CONNECTION_REUSABILITY_STATUS
+    extra_labels:
+      - application_name
+      - application_handle
+      - application_id
+      #- CLIENT_WRKSTNNAME
+      #- CLIENT_ACCTNG
+      #- CLIENT_USERID
+      #- CLIENT_APPLNAME
+      #- CLIENT_PID
+      #- CLIENT_PRDID
+      #- CLIENT_PLATFORM
+      #- CLIENT_PROTOCOL
+      #- SYSTEM_AUTH_ID
+      #- SESSION_AUTH_ID
+      #- CLIENT_HOSTNAME
+      #- CLIENT_IPADDR
+      #- TENANT_NAME
+      #- TENANT_ID
+      - member
+      # - WORKLOAD_OCCURRENCE_STATE
+      # - LAST_EXECUTABLE_ID
+      # - LAST_REQUEST_TYPE
+      # - INTRA_PARALLEL_STATE
+      # - CURRENT_ISOLATION
+      # - UOW_COMP_STATUS
+      # - EXECUTION_ID
+      # - REUSABILITY_STATUS_REASON
+      # - SESSION_PRIORITY
+      # - CONNECT_SEC_TYPE
+      # - CONNECT_CIPHER_SPEC
+      # - SSL_SRV_CERT_LABEL
+      # - SSL_SRV_CERT_FINGERPRINT
