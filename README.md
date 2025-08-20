@@ -19,9 +19,11 @@ A customizable **Prometheus Exporter** for **IBM Db2**, designed to run multiple
 ```
 .
 ├── config.yaml          # Query and DB config
-├── exporter.py          # Prometheus exporter logic
 ├── docker-compose.yml   # Full setup: exporter, Prometheus, Grafana
-└── dashboards/          # Prebuilt Grafana dashboards (optional)
+├── Dockerfile           # Build Instructions for the python db2 exporter
+├── exporter.py          # Prometheus exporter logic
+└── grafana/             # Prebuilt Grafana dashboards and datasource provisioning
+└── prometheus/          # Prometheus Scrape config and basic rule set
 ```
 ---
 
@@ -66,7 +68,7 @@ Includes:
 ## 🔍 Prometheus Configuration
 
 Prometheus scrapes metrics from the exporter:
-
+```yaml
 scrape_configs:
   - job_name: 'db2'
     scrape_interval: 15s
@@ -78,7 +80,7 @@ scrape_configs:
     metrics_path: /metrics/mongetdatabase
     static_configs:
       - targets: ['exporter:8000']
-
+```
 
 ## 📊 Grafana
 
