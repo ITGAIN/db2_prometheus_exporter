@@ -1,0 +1,443 @@
+{
+  "id": null,
+  "uid": "db2-request-time-breakdown",
+  "title": "DB2 Request Time Breakdown",
+  "tags": [
+    "db2",
+    "performance",
+    "wait time"
+  ],
+  "timezone": "browser",
+  "schemaVersion": 37,
+  "version": 1,
+  "refresh": "30s",
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Total Request Breakdown",
+      "id": 1,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 0,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_rqst_time_total[5m])",
+          "legendFormat": "Total Request Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_wait_time_total[5m])",
+          "legendFormat": "Total Wait Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_exec_time_total[5m])",
+          "legendFormat": "Total Execution Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_total_compile_proc_time_total[5m])",
+          "legendFormat": "Total Compile Time",
+          "refId": "D"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Wait Time Breakdown",
+      "id": 2,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 8,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_agent_wait_time_total[5m])",
+          "legendFormat": "Agent Wait Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_lock_wait_time_total[5m])",
+          "legendFormat": "Lock Wait Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_log_buffer_wait_time_total[5m])",
+          "legendFormat": "Log Buffer Wait Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_log_disk_wait_time_total[5m])",
+          "legendFormat": "Log Disk Wait Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_fcm_recv_wait_time_total[5m])",
+          "legendFormat": "FCM Receive Wait Time",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(db2_fcm_send_wait_time_total[5m])",
+          "legendFormat": "FCM Send Wait Time",
+          "refId": "F"
+        },
+        {
+          "expr": "rate(db2_audit_subsystem_wait_time_total[5m])",
+          "legendFormat": "Audit Subsystem Wait Time",
+          "refId": "G"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Execution & Compile Time Breakdown",
+      "id": 3,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_implicit_compile_proc_time_total[5m])",
+          "legendFormat": "Implicit Compile Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_routine_user_code_proc_time_total[5m])",
+          "legendFormat": "Routine/User Code Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_section_proc_time_total[5m])",
+          "legendFormat": "Section Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_total_stats_proc_time_total[5m])",
+          "legendFormat": "Stats Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_total_column_proc_time_total[5m])",
+          "legendFormat": "Column Time",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(db2_total_reorg_proc_time_total[5m])",
+          "legendFormat": "Reorg Time",
+          "refId": "F"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Total Wait Time Breakdown",
+      "id": 4,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 24,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_agent_wait_time_total[5m])",
+          "legendFormat": "Agent Wait Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_lock_wait_time_total[5m])",
+          "legendFormat": "Lock Wait Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_log_buffer_wait_time_total[5m])",
+          "legendFormat": "Log Buffer Wait Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_log_disk_wait_time_total[5m])",
+          "legendFormat": "Log Disk Wait Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_tcpip_recv_wait_time_total[5m])",
+          "legendFormat": "Tcpip Recv Wait Time",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(db2_tcpip_send_wait_time_total[5m])",
+          "legendFormat": "Tcpip Send Wait Time",
+          "refId": "F"
+        },
+        {
+          "expr": "rate(db2_ipc_recv_wait_time_total[5m])",
+          "legendFormat": "Ipc Recv Wait Time",
+          "refId": "G"
+        },
+        {
+          "expr": "rate(db2_ipc_send_wait_time_total[5m])",
+          "legendFormat": "Ipc Send Wait Time",
+          "refId": "H"
+        },
+        {
+          "expr": "rate(db2_fcm_recv_wait_time_total[5m])",
+          "legendFormat": "Fcm Recv Wait Time",
+          "refId": "I"
+        },
+        {
+          "expr": "rate(db2_fcm_send_wait_time_total[5m])",
+          "legendFormat": "Fcm Send Wait Time",
+          "refId": "J"
+        },
+        {
+          "expr": "rate(db2_audit_subsystem_wait_time_total[5m])",
+          "legendFormat": "Audit Subsystem Wait Time",
+          "refId": "K"
+        },
+        {
+          "expr": "rate(db2_audit_file_write_wait_time_total[5m])",
+          "legendFormat": "Audit File Write Wait Time",
+          "refId": "L"
+        },
+        {
+          "expr": "rate(db2_diaglog_write_wait_time_total[5m])",
+          "legendFormat": "Diaglog Write Wait Time",
+          "refId": "M"
+        },
+        {
+          "expr": "rate(db2_pool_physical_read_time_total[5m])",
+          "legendFormat": "Pool Physical Read Time",
+          "refId": "N"
+        },
+        {
+          "expr": "rate(db2_pool_write_time_total[5m])",
+          "legendFormat": "Pool Write Time",
+          "refId": "O"
+        },
+        {
+          "expr": "rate(db2_direct_read_time_total[5m])",
+          "legendFormat": "Direct Read Time",
+          "refId": "P"
+        },
+        {
+          "expr": "rate(db2_direct_write_time_total[5m])",
+          "legendFormat": "Direct Write Time",
+          "refId": "Q"
+        },
+        {
+          "expr": "rate(db2_event_mon_wait_time_total[5m])",
+          "legendFormat": "Event Mon Wait Time",
+          "refId": "R"
+        },
+        {
+          "expr": "rate(db2_extended_latch_wait_time_total[5m])",
+          "legendFormat": "Extended Latch Wait Time",
+          "refId": "S"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Compile Time Breakdown",
+      "id": 5,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 32,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_compile_proc_time_total[5m])",
+          "legendFormat": "Total Compile Proc Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_sync_runstats_proc_time_total[5m])",
+          "legendFormat": "Total Sync Runstats Proc Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_stats_proc_time_total[5m])",
+          "legendFormat": "Total Stats Proc Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_total_implicit_compile_proc_time_total[5m])",
+          "legendFormat": "Total Implicit Compile Proc Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_total_routine_user_code_proc_time_total[5m])",
+          "legendFormat": "Total Routine User Code Proc Time",
+          "refId": "E"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Section and Execution Breakdown",
+      "id": 6,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 40,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_section_proc_time_total[5m])",
+          "legendFormat": "Total Section Proc Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_section_sort_proc_time_total[5m])",
+          "legendFormat": "Total Section Sort Proc Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_col_proc_time_total[5m])",
+          "legendFormat": "Total Col Proc Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_total_col_organized_access_proc_time_total[5m])",
+          "legendFormat": "Total Col Organized Access Proc Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_total_col_scan_proc_time_total[5m])",
+          "legendFormat": "Total Col Scan Proc Time",
+          "refId": "E"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Transaction Breakdown",
+      "id": 7,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 48,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_commit_proc_time_total[5m])",
+          "legendFormat": "Total Commit Proc Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_rollback_proc_time_total[5m])",
+          "legendFormat": "Total Rollback Proc Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_reorg_proc_time_total[5m])",
+          "legendFormat": "Total Reorg Proc Time",
+          "refId": "C"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    },
+    {
+      "type": "graph",
+      "title": "Load and Build Time Breakdown",
+      "id": 8,
+      "datasource": "Prometheus",
+      "gridPos": {
+        "x": 0,
+        "y": 56,
+        "w": 24,
+        "h": 8
+      },
+      "targets": [
+        {
+          "expr": "rate(db2_total_load_proc_time_total[5m])",
+          "legendFormat": "Total Load Proc Time",
+          "refId": "A"
+        },
+        {
+          "expr": "rate(db2_total_index_build_proc_time_total[5m])",
+          "legendFormat": "Total Index Build Proc Time",
+          "refId": "B"
+        },
+        {
+          "expr": "rate(db2_total_non_wait_index_build_proc_time_total[5m])",
+          "legendFormat": "Total Non Wait Index Build Proc Time",
+          "refId": "C"
+        },
+        {
+          "expr": "rate(db2_total_connection_proc_time_total[5m])",
+          "legendFormat": "Total Connection Proc Time",
+          "refId": "D"
+        },
+        {
+          "expr": "rate(db2_total_conn_switch_user_req_proc_time_total[5m])",
+          "legendFormat": "Total Conn Switch User Req Proc Time",
+          "refId": "E"
+        },
+        {
+          "expr": "rate(db2_total_authentication_proc_time_total[5m])",
+          "legendFormat": "Total Authentication Proc Time",
+          "refId": "F"
+        }
+      ],
+      "lines": true,
+      "stack": false,
+      "legend": {
+        "show": true
+      }
+    }
+  ]
+}

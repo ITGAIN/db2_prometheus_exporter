@@ -1,0 +1,73 @@
+exporter_port: 8000
+
+databases:
+  - host: 192.168.2.1
+    port: 50000
+    database: SAMPLE1
+    user: myuser
+    password: mypassword
+
+  - host: db2host2
+    port: 50001
+    database: SAMPLE2
+    user: db2inst1
+    password: secret2
+
+queries:
+  - name: "database_metrics"
+    query: "SELECT * FROM TABLE(MON_GET_DATABASE(-2)) AS t"
+    metric_origin: "mongetdatabase"
+    gauge_metrics:
+      - MEMBER
+      - DB_STATUS
+      - DB_ACTIVATION_STATE
+      - DB_CONN_TIME
+      - CATALOG_PARTITION
+      - LAST_BACKUP
+      - CONNECTIONS_TOP
+      - APPLS_CUR_CONS
+      - APPLS_IN_DB2
+      - NUM_ASSOC_AGENTS
+      - AGENTS_TOP
+      - NUM_COORD_AGENTS
+      - COORD_AGENTS_TOP
+      - NUM_LOCKS_HELD
+      - NUM_LOCKS_WAITING
+      - LOCK_LIST_IN_USE
+      - ACTIVE_SORTS
+      - ACTIVE_HASH_JOINS
+      - ACTIVE_OLAP_FUNCS
+      - DB_PATH
+      - NUM_POOLED_AGENTS
+      - ACTIVE_HASH_GRPBYS
+      - SORT_SHRHEAP_TOP
+      - ACTIVE_HASH_GRPBYS_TOP
+      - ACTIVE_HASH_JOINS_TOP
+      - ACTIVE_OLAP_FUNCS_TOP
+      - ACTIVE_PEAS
+      - ACTIVE_PEAS_TOP
+      - ACTIVE_PEDS
+      - ACTIVE_PEDS_TOP
+      - ACTIVE_SORT_CONSUMERS
+      - ACTIVE_SORT_CONSUMERS_TOP
+      - ACTIVE_SORTS_TOP
+      - ACTIVE_COL_VECTOR_CONSUMERS
+      - ACTIVE_COL_VECTOR_CONSUMERS_TOP
+      - SORT_CONSUMER_HEAP_TOP
+      - SORT_CONSUMER_SHRHEAP_TOP
+      - SORT_HEAP_TOP
+      - TOTAL_BACKUPS
+      - SHR_WORKSPACE_ACTIVE
+      - SHR_WORKSPACE_INACTIVE
+      - AUTHN_CACHE_MEMORY_USAGE
+    extra_labels:
+      - member
+
+  - name: "another_metric_set"
+    metric_origin: "mongetbufferpool"
+    query: "SELECT * FROM TABLE(MON_GET_BUFFERPOOL('',-2)) AS t"
+    gauge_metrics:
+      - bufferpool_hits
+    extra_labels:
+      - bp_name
+      - member

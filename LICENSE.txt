@@ -1,0 +1,29 @@
+Business Source License 1.1
+
+Licensor: ITGAIN Integration Solution GMBH 
+
+Licensed Use:
+This software may be used free of charge under the following conditions:
+- For evaluation and testing purposes only,
+- In non-production development environments,
+- For research or academic use.
+
+Use in any production or commercial setting is not permitted unless a commercial license has been obtained from the Licensor.
+
+Prohibited Use:
+The use of this software in production systems or as part of a commercial offering (e.g., in a product or service) is strictly prohibited without prior written permission from the Licensor.
+
+Change Date:
+January 1, 2100
+
+On the Change Date, the Licensed Work will be made available under the Apache License, Version 2.0.
+
+Additional Terms:
+- You may modify and share the source code under these same license conditions.
+- Access to the source code is provided to support evaluation, education, and limited development use.
+- For commercial licensing or production use, please contact: more.about@itgain.de
+
+Copyright (c) 2025 ITGAIN Integration Solution GMBH 
+
+This license is based on the Business Source License 1.1.  
+A copy of the full license text is available at: https://mariadb.com/bsl11

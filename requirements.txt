@@ -1,0 +1,4 @@
+flask
+pyyaml
+prometheus_client
+ibm_db
